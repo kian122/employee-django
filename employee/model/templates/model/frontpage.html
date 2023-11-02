@@ -4,7 +4,17 @@
 
 {% block content %}
 
-<a href="log/" >Sign Up</a>
-<a href="create/" >Create Employee</a>
+{% if user.is_authenticated %}
+
+    <a href="create/" >Create Employee</a>
+
+{% else %}
+
+    <a href="log/" > login </a>
+    <p>
+        please log in to make employee list
+    </p>
+
+{% endif %}
 
 {% endblock content %}
