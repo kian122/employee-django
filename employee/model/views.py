@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render , redirect
 
 # importing forms
@@ -16,6 +17,7 @@ def log( request):
     return render( request , "model/login.html")
 
 # create employee
+@login_required
 def create( request):
     # define
     form = EmployeeForm
