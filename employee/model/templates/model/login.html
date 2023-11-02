@@ -3,9 +3,28 @@
 {% block title %} create employee {% endblock title %}
 
 {% block content %}
+<form action="." method="post">
+    {% csrf_token %}
+    <div style="margin: 20px; padding: 20px; border:1px solid black;">
+        <label>username:</label>
+        <input type="text" name="username">
+    </div>
 
-<p>
-    this is the log in page
-</p>
+    <div style="margin: 20px; padding: 20px; border:1px solid black;">
+        <label>password:</label>
+        <input type="text" name="password">
+    </div>
 
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %} 
+                <div>
+                    <p>{{ error|escape }}</p>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <button type="submit">Log in</button>
+</form>
 {% endblock content %}
