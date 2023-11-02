@@ -1,9 +1,9 @@
-from . import models
+from .models import Employee
 
 from django import forms
 
 # employee class
-class EmployeeForm (forms.Form):
+class EmployeeForm (forms.ModelForm):
     class Meta:
-        model = models.employee
+        model = Employee
         fields = "__all__"

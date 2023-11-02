@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 
 # importing forms
 from .form import EmployeeForm
@@ -17,4 +17,14 @@ def log( request):
 
 # create employee
 def create( request):
-    return render( request , "model/create.html")
+    # define
+    form = EmployeeForm
+
+    # logic
+    if request.method == "POST":
+        form = form( request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("frontpage")
+
+    return render( request , "model/create.html" , {"form":form})
