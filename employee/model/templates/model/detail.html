@@ -1,0 +1,23 @@
+{% extends "model/base.html" %}
+
+{% block title %} employee name {% endblock title %}
+
+{% block content %}
+
+name and last name :  {{ model.name }} {{ model.last_name }}
+<div style="margin-bottom: 20px;">
+
+</div>    
+id and phone number :  {{ model.phone_number }}
+<br>
+<div style="margin-bottom: 20px;">
+
+</div>    
+you create this acount on : {{ model.started_at }} 
+<br>
+<div style="margin-bottom: 20px;">
+
+</div>    
+acount email :  {{ model.email }}
+
+{% endblock content %}

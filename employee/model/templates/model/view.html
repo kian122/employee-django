@@ -4,8 +4,19 @@
 
 {% block content %}
 
-<p>
-    this is for text
-</p>
+{% for i in model %}
+    
+    <p>
+        {{ i.id }} : {{ i.name }} {{ i.last_name }}
+    </p> 
+    <a href="{% url 'detail' i.id %}">
+        click me
+    </a>
+    <div style="margin-bottom: 100px;">
+
+    </div>
+
+
+{% endfor %}
 
 {% endblock %}
