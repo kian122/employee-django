@@ -1,0 +1,13 @@
+{% extends "model/base.html" %}
+
+{% block title %} {{ model.name }} {{ model.last_name}} editing ... {% endblock %}
+
+{% block content %}
+
+<form action="{{ model.id }}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit"> submit </button>
+</form>
+
+{% endblock %}

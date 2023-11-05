@@ -12,11 +12,29 @@
     <a href="{% url 'detail' i.id %}">
         click me
     </a>
+    <br>
+    <a href="{% url 'remove' i.id %}">
+        for delete click here
+    </a>
+    <br>
+    <a href="{% url 'edit' i.id %}">
+        edit employee
+    </a>
     <div style="margin-bottom: 100px;">
 
     </div>
 
 
 {% endfor %}
+
+{% if model.count == 0 %}
+        <a href="{% url 'frontpage' %}">
+            go to home page
+        </a>
+        <br>
+        <a href="{% url 'create' %}">
+            go to create employee
+        </a>
+    {% endif  %}
 
 {% endblock %}
